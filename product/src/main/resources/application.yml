@@ -1,0 +1,34 @@
+server:
+  port: 7845
+
+# 数据源
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/school_room?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
+    password: 123456
+    username: root
+  application:
+    name: product1
+mybatis:
+  # 别名
+  type-aliases-package: com.itcast.product.pojo
+
+# eureka（集群）注册地址，这里会将服务实例注册到eureka集群服务
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:10086/eureka/,http://localhost:10087/eureka/
+
+    # 是否注册进注册中心 默认true
+    register-with-eureka: true
+  # 心跳机制
+  instance:
+    # 过期时间(超出这个时间没有向eureka发送消息，就会被从服务列表剔除掉)
+    lease-expiration-duration-in-seconds: 30
+    # 服务续约时间(间隔时间,每隔这个时间向eureka发送消息，证明自己还活着)
+    lease-renewal-interval-in-seconds: 5
+
+
+
+
+

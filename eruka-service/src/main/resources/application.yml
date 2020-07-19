@@ -1,0 +1,18 @@
+server:
+  port: 10086
+
+spring:
+  application:
+    name: eruka-service-s #会作为当前服务的名字注入进eureka容器
+
+# eureka注册地址 这里将自己注册进自己
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:10086/eureka/
+
+  server:
+    # 默认true，对服务的注册信息的自我保护，不予剔除
+    enable-self-preservation: false
+    # 失效剔除（自动任务，对超出续约时间的服务进行剔除 ,默认60 * 1000 毫秒）
+    eviction-interval-timer-in-ms: 1000
