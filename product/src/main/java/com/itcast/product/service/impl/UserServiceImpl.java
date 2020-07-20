@@ -20,9 +20,18 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getUserById(Integer id) {
-        Example example = new Example(User.class);
-        Example.Criteria criteria = example.createCriteria();
-        criteria.andEqualTo("id", id);
-        return userMapper.selectOneByExample(example);
+//        Example example = new Example(User.class);
+//        Example.Criteria criteria = example.createCriteria();
+//        criteria.andEqualTo("id", id);
+//        return userMapper.selectOneByExample(example);
+
+        // 写死数据，方便模拟
+        User user = null;
+        switch (id.intValue()) {
+            case 1:user = new User(1,"jack") ;break;
+            case 2:user = new User(2,"tom") ;break;
+            default:user = new User();
+        }
+        return user;
     }
 }

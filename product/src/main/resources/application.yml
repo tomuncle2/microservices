@@ -1,5 +1,5 @@
 server:
-  port: 7845
+  port: 7846
 
 # 数据源
 spring:

@@ -1,5 +1,5 @@
 server:
-  port: 7512
+  port: 7513
 
 # eureka（集群）注册地址，这里会将服务实例注册到eureka集群服务
 eureka:

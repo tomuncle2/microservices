@@ -7,15 +7,10 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="customer" />
-        <module name="eruka-service" />
         <module name="product" />
+        <module name="eruka-service" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="customer" target="1.8" />
-      <module name="eruka-service" target="1.8" />
-      <module name="product" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
