@@ -1,5 +1,5 @@
 server:
-  port: 7512
+  port: 7513
 
 # eureka（集群）注册地址，这里会将服务实例注册到eureka集群服务
 eureka:
@@ -13,7 +13,9 @@ eureka:
     # 多久去拉取一次可用服务列表
     registry-fetch-interval-seconds: 5
 
-
+product1: #服务提供的服务名  这里指定随机算法
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
 # 注册进eureka的唯一服务名
 spring:
   application:
