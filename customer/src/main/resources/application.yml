@@ -25,6 +25,17 @@ hystrix:
           thread:
             timeoutInMilliseconds: 6000 # 设置hystrix的超时时间为6000ms
 
+feign:
+  hystrix:
+    enabled: true # 开启Feign的熔断功能
+
+# - requestVolumeThreshold：触发熔断的最小请求次数，默认20
+  #- errorThresholdPercentage：触发熔断的失败请求最小占比，默认50%
+  #- sleepWindowInMilliseconds：休眠时长，默认是5000毫秒
+#circuitBreaker:
+#  requestVolumeThreshold: 10
+#  sleepWindowInMilliseconds: 10000
+#  errorThresholdPercentage: 50
 # 注册进eureka的唯一服务名
 spring:
   application:

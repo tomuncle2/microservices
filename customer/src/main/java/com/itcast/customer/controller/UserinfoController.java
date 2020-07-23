@@ -28,7 +28,7 @@ public class UserinfoController {
     public Object getUserById(Integer id){
 
 // 1.
-//        User user = restTemplate.getForObject("http://localhost:7845/product/user/v1/"+ id +"/getUser", User.class);
+//        User user = restTemplate.getForObject("http://localhost:7845/product/user/v1/"+ id +"/getUserById", User.class);
 
         // 2.解决地址硬编码问题
 //        List<ServiceInstance>  list = discoveryClient.getInstances("product1");
@@ -39,7 +39,7 @@ public class UserinfoController {
 
          // 加入ribbon负载均衡 提供服务的服务名
         String url = "http://product1";
-        User user = restTemplate.getForObject(url + "/product/user/v1/"+ id +"/getUser", User.class);
+        User user = restTemplate.getForObject(url + "/product/user/v1/"+ id +"/getUserById", User.class);
          return user;
     }
 }

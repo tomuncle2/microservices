@@ -1,12 +1,14 @@
 package com.itcast.customer.controller;
 
-import com.itcast.customer.controller.feignclient.UserFeign;
+
 import com.itcast.customer.pojo.User;
 import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
@@ -58,4 +60,26 @@ public class HystrixController {
     }
 
 
+    @GetMapping("getForHystrix")
+    @HystrixCommand(commandProperties = {
+            //设置熔断
+            @HystrixProperty(name = "circuitBreaker.enabled", value = "true"),
+            //时间滚动中最小请求参数，只有在一个统计窗口内处理的请求数量达到这个阈值，才会进行熔断与否的判断
+            @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "5"),
+            //休眠时间窗
+            @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "20000"),
+            //错误百分比，判断熔断的阈值，默认值50，表示在一个统计窗口内有50%的请求处理失败，会触发熔断
+            @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value = "50")
+    })
+    public String getForHystrix(@RequestParam Integer id){
+
+        // 模拟熔断
+        if (id.intValue() == 1) {
+            throw new RuntimeException("太忙了.....");
+        } else {
+            String url = "http://product1";
+            User user = restTemplate.getForObject(url + "/product/hystrix/user/v1/" + id + "/getUserById", User.class);
+            return null == user ? "" : user.toString();
+        }
+    }
 }

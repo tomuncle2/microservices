@@ -38,6 +38,22 @@
             <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
         </dependency>
 
+        <!--hystrix 可视化面板-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-hystrix-dashboard</artifactId>
+        </dependency>
+
+
+
+       <!---->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.cloud</groupId>-->
+            <!--<artifactId>spring-cloud-starter-netflix-turbine-stream</artifactId>-->
+        <!--</dependency>-->
+
+
+
         <!--feign-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
