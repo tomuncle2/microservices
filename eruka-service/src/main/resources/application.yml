@@ -11,6 +11,7 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:10086/eureka/
 
+
   server:
     # 默认true，对服务的注册信息的自我保护，不予剔除
     enable-self-preservation: false

@@ -37,7 +37,7 @@ public class UserinfoController {
 //         User user = restTemplate.getForObject(url + "/product/user/v1/"+ id +"/getUser", User.class);
 
 
-         // 加入负载均衡 提供服务的服务名
+         // 加入ribbon负载均衡 提供服务的服务名
         String url = "http://product1";
         User user = restTemplate.getForObject(url + "/product/user/v1/"+ id +"/getUser", User.class);
          return user;

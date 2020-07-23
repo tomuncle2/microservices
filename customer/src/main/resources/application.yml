@@ -13,9 +13,18 @@ eureka:
     # 多久去拉取一次可用服务列表
     registry-fetch-interval-seconds: 5
 
-product1: #服务提供的服务名  这里指定随机算法
+product1: #指定负载均衡算法 服务提供的服务名  这里指定随机算法
   ribbon:
     NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 6000 # 设置hystrix的超时时间为6000ms
+
 # 注册进eureka的唯一服务名
 spring:
   application:
