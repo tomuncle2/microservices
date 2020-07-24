@@ -4,5 +4,9 @@ spring:
   application:
     name: zuul-service
 
-
-
+zuul:
+  routes:
+    # 消费服务 将/customerApi/** 代理到http://localhost:7513/
+    customer1:
+      path: /customerApi/**
+      url: http://localhost:7513

@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 /**
  * @author: 蔡迪
  * @date: 17:34 2020/7/23
- * @description: 消费者用户信息feign
+ * @description: 消费者用户信息feign fallbackFactory:用可以获得回退触发的原因
  */
-@FeignClient(value = "PRODUCT1", fallbackFactory = UserFeignCallback.class)
+@FeignClient(value = "PRODUCT1", fallback = UserFeignCallback.class)
 public interface UserFeign {
 
     /**
