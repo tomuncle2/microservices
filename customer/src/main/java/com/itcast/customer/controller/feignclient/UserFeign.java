@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
  * @date: 17:34 2020/7/23
  * @description: 消费者用户信息feign
  */
-@FeignClient(value = "PRODUCT1", fallback = UserFeignCallback.class)
+@FeignClient(value = "PRODUCT1", fallbackFactory = UserFeignCallback.class)
 public interface UserFeign {
 
     /**

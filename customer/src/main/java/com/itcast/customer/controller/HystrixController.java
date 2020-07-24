@@ -71,6 +71,13 @@ public class HystrixController {
             //错误百分比，判断熔断的阈值，默认值50，表示在一个统计窗口内有50%的请求处理失败，会触发熔断
             @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value = "50")
     })
+
+    /**
+     *
+     * @date 17:01 2020/7/24
+     * @param id
+     * @return java.lang.String
+     */
     public String getForHystrix(@RequestParam Integer id){
 
         // 模拟熔断

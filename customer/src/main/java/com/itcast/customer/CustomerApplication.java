@@ -16,7 +16,6 @@ import org.springframework.web.client.RestTemplate;
 @EnableCircuitBreaker
 //@SpringCloudApplication 包含上面三个注解
 @EnableFeignClients
-@EnableHystrixDashboard
 public class CustomerApplication {
 
     public static void main(String[] args) {
