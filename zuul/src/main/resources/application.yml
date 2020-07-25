@@ -4,9 +4,18 @@ spring:
   application:
     name: zuul-service
 
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 2000 # 设置hystrix的超时时间为6000ms
+
 zuul:
   routes:
     # 消费服务 将/customerApi/** 代理到http://localhost:7513/
     customer1:
       path: /customerApi/**
       url: http://localhost:7513
+
